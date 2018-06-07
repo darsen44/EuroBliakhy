@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 @Repository
-
 public interface SellersRepository extends JpaRepository<Sellers,Long> {
     Sellers findByFirstName(String name);
     Sellers findByPhoneNumberLike(String num);
