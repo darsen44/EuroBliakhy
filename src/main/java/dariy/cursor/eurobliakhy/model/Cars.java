@@ -1,8 +1,6 @@
 package dariy.cursor.eurobliakhy.model;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.data.annotation.CreatedDate;
@@ -15,7 +13,10 @@ import java.util.Date;
 @Table(name = "Cars")
 @Getter
 @Setter
+@Builder
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class Cars {
 
     @Id
@@ -44,19 +45,9 @@ public class Cars {
     @NotEmpty
     private String description;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinTable(name = "seller_of_Car",joinColumns = @JoinColumn(name = "Sellers_id"),
-//    inverseJoinColumns = @JoinColumn(name = ""))
-//    private Sellers seller;
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "seller_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Sellers seller;
-
-//    @Temporal(TemporalType.TIMESTAMP)
-//    @Column(name = "created_Time", nullable = false, updatable = false)
-//    @CreatedDate
-//    private Date createdTime = new Date();
 
 }

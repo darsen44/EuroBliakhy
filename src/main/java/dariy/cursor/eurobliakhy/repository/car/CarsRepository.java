@@ -7,14 +7,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface CarsRepository extends JpaRepository<Cars,Long> {
-    List<Cars> allCarsOrderByYear();
-    List<Cars> allCarsOrderByPrice();
-    List<Cars> allCarsOrderByCountryOfRegistration();
-    Cars getById(Long id);
 
-    Cars findByModel(String name);
+    List<Cars> findAllByOrderByYearAsc();
 
-    Cars findByYear(Integer integer);
+    List<Cars> findAllByOrderByPriceAsc();
 
-    Cars findByPrice(String name);
+    List<Cars> findAllByOrderByCountryOfRegistrationAsc();
 }

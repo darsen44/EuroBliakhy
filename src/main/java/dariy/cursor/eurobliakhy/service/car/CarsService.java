@@ -1,5 +1,6 @@
 package dariy.cursor.eurobliakhy.service.car;
 
+import dariy.cursor.eurobliakhy.dto.CarDTO;
 import dariy.cursor.eurobliakhy.model.Cars;
 
 import java.util.List;
@@ -7,13 +8,7 @@ import java.util.List;
 public interface CarsService {
     Cars getById(Long id);
 
-    Cars getByModel(String name);
-
-    Cars getByYear(Integer integer);
-
-    Cars getByPrice(String name);
-
-    void saveCar(Cars car);
+    List<Cars> saveCar(Long sellerId, List<CarDTO> carDTOS);
 
     void deleteCarById(Long id);
 
@@ -21,4 +16,10 @@ public interface CarsService {
 
     List<Cars> findAllCars();
 
+    List<Cars> findAllByOrderByYearAsc();
+
+    List<Cars> findAllByOrderByPriceAsc();
+
+    List<Cars> findAllByOrderByCountryOfRegistrationAsc();
 }
+

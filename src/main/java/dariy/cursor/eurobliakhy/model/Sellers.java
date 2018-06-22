@@ -1,9 +1,7 @@
 package dariy.cursor.eurobliakhy.model;
 
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
@@ -16,7 +14,10 @@ import java.util.Date;
 @Table(name = "Sellers")
 @Getter
 @Setter
+@Builder
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Sellers {
 
     @Id
@@ -41,11 +42,5 @@ public class Sellers {
     @Column(name = "phone_Number")
     @Size(min = 10,max = 13)
     private String phoneNumber;
-
-//    @Temporal(TemporalType.TIMESTAMP)
-//    @Column(name = "created_Time", nullable = false, updatable = false)
-//    @CreatedDate
-//    private Date createdTime = new Date();
-
 
 }
